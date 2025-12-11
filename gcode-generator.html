@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>G-Code Generator - Creative Tools Hub</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h1>Creative Tools</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="qr-code-generator.html">QR Code</a></li>
+                <li><a href="gcode-generator.html" class="active">G-Code</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container">
+        <section class="tool-section">
+            <h2>G-Code Generator</h2>
+            <p class="subtitle">Convert images to G-Code for CNC machines, laser cutters, and pen plotters</p>
+
+            <div class="tool-content">
+                <div class="input-section">
+                    <div class="form-group">
+                        <label for="imageInput">Upload Image:</label>
+                        <input 
+                            type="file" 
+                            id="imageInput" 
+                            accept="image/*"
+                            class="file-input"
+                        >
+                        <p class="help-text">Supported formats: JPG, PNG, GIF, BMP</p>
+                    </div>
+
+                    <div class="controls-row">
+                        <div class="form-group">
+                            <label for="threshold">Edge Threshold (0-255):</label>
+                            <input 
+                                type="range" 
+                                id="threshold" 
+                                min="0" 
+                                max="255" 
+                                value="128"
+                                step="5"
+                            >
+                            <span id="thresholdDisplay">128</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="feed">Feed Rate (mm/min):</label>
+                            <input 
+                                type="number" 
+                                id="feed" 
+                                value="100"
+                                min="1"
+                                max="1000"
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="scale">Scale Factor:</label>
+                            <input 
+                                type="number" 
+                                id="scale" 
+                                value="1"
+                                min="0.1"
+                                max="10"
+                                step="0.1"
+                            >
+                        </div>
+                    </div>
+
+                    <button class="btn btn-primary btn-large" id="generateGcodeBtn">Generate G-Code</button>
+                </div>
+
+                <div class="output-section">
+                    <div class="preview-container">
+                        <div class="preview-item">
+                            <h3>Original Image</h3>
+                            <div id="originalPreview" class="preview-canvas">
+                                <p class="placeholder">Upload an image to preview</p>
+                            </div>
+                        </div>
+
+                        <div class="preview-item">
+                            <h3>G-Code Path Preview</h3>
+                            <canvas id="pathCanvas" class="preview-canvas" width="400" height="400"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="gcode-output-section" style="display: none;" id="gcodeOutputSection">
+                        <div class="form-group">
+                            <label>Generated G-Code:</label>
+                            <textarea id="gcodeOutput" readonly rows="10"></textarea>
+                        </div>
+                        <button class="btn btn-secondary" id="downloadGcodeBtn">Download G-Code (.gcode)</button>
+                        <button class="btn btn-secondary" id="copyGcodeBtn">Copy to Clipboard</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 Creative Tools Hub. All rights reserved.</p>
+    </footer>
+
+    <script src="gcode-script.js"></script>
+</body>
+</html>

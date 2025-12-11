@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Generator - Creative Tools Hub</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h1>Creative Tools</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="qr-code-generator.html" class="active">QR Code</a></li>
+                <li><a href="gcode-generator.html">G-Code</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container">
+        <section class="tool-section">
+            <h2>QR Code Generator</h2>
+            <p class="subtitle">Create custom QR codes for any text or URL</p>
+
+            <div class="tool-content">
+                <div class="input-section">
+                    <div class="form-group">
+                        <label for="qrInput">Text or URL:</label>
+                        <textarea 
+                            id="qrInput" 
+                            placeholder="Enter text, URL, email, phone number, or any content..."
+                            rows="3"
+                        ></textarea>
+                    </div>
+
+                    <div class="controls-row">
+                        <div class="form-group">
+                            <label for="qrSize">Size (pixels):</label>
+                            <input 
+                                type="range" 
+                                id="qrSize" 
+                                min="100" 
+                                max="500" 
+                                value="250"
+                                step="50"
+                            >
+                            <span id="sizeDisplay">250px</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="qrColor">Color:</label>
+                            <input 
+                                type="color" 
+                                id="qrColor" 
+                                value="#000000"
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="qrBg">Background:</label>
+                            <input 
+                                type="color" 
+                                id="qrBg" 
+                                value="#ffffff"
+                            >
+                        </div>
+                    </div>
+
+                    <button class="btn btn-primary btn-large" id="generateBtn">Generate QR Code</button>
+                </div>
+
+                <div class="output-section">
+                    <div id="qrContainer" class="qr-container">
+                        <p class="placeholder">Your QR code will appear here</p>
+                    </div>
+                    <button class="btn btn-secondary" id="downloadBtn" style="display: none;">Download QR Code</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 Creative Tools Hub. All rights reserved.</p>
+    </footer>
+
+    <script src="qrcode-script.js"></script>
+</body>
+</html>
